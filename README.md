@@ -1,6 +1,6 @@
 # Shallow-Deep Collaborative Learning for Unsupervised Visible-Infrared Person Re-Identification
 
-The *official* repository for [Towards Grand Unified Representation Learning for Unsupervised Visible-Infrared Person Re-Identification](https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Shallow-Deep_Collaborative_Learning_for_Unsupervised_Visible-Infrared_Person_Re-Identification_CVPR_2024_paper.pdf). We achieve state-of-the-art performances on **unsupervised visible-infrared person re-identification** task.
+The *official* repository for [Shallow-Deep Collaborative Learning for Unsupervised Visible-Infrared Person Re-Identification](https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Shallow-Deep_Collaborative_Learning_for_Unsupervised_Visible-Infrared_Person_Re-Identification_CVPR_2024_paper.pdf). We achieve state-of-the-art performances on **unsupervised visible-infrared person re-identification** task.
 
 
 # Contributions
