@@ -1,0 +1,161 @@
+==========
+Args:Namespace(arch='agw', batch_size=256, config_file='vit_base_ics_288.yml', data_dir='/scratch/yangbin/sdcl/data', dataset='sysu_all', dropout=0, epochs=50, eps=0.6, eps_gap=0.02, eval_step=1, features=0, height=288, iters=200, k1=30, k2=6, logs_dir='logs/sysu_train', lr=0.00035, milestones=[20, 40], momentum=0.1, no_cam=False, num_instances=16, opts=[], pooling_type='gem', print_freq=10, seed=1, step_size=20, temp=0.05, use_hard=False, warmup_step=0, weight_decay=0.0005, width=144, workers=4)
+==========
+Loaded configuration file vit_base_ics_288.yml
+
+MODEL:
+  PRETRAIN_PATH: './vit_base_ics_cfs_lup.pth'
+  PRETRAIN_HW_RATIO: 2
+  METRIC_LOSS_TYPE: 'triplet'
+  IF_LABELSMOOTH: 'off'
+  IF_WITH_CENTER: 'no'
+  NAME: 'transformer'
+  NO_MARGIN: True
+  # DEVICE_ID: ('3')
+  TRANSFORMER_TYPE: 'vit_base_patch16_224_TransReID'
+  STRIDE_SIZE: [16, 16]
+  STEM_CONV: True # False for vanilla ViT-S
+  GEM_POOLING: False
+  # DIST_TRAIN: True
+  SIE_COE: 3.0
+INPUT:
+  SIZE_TRAIN: [288, 144] #[384, 128] #[288, 144] #
+  SIZE_TEST: [288, 144] # [384, 128] #  [288, 144] #
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.5 # random erasing
+  PADDING: 10
+  PIXEL_MEAN: [0.5, 0.5, 0.5]
+  PIXEL_STD: [0.5, 0.5, 0.5]
+
+# DATASETS:
+#   NAMES: ('market1501')
+#   ROOT_DIR: ('/home/michuan.lh/datasets')
+
+# DATALOADER:
+#   SAMPLER: 'softmax_triplet'
+#   NUM_INSTANCE: 4
+#   NUM_WORKERS: 8
+
+SOLVER:
+  OPTIMIZER_NAME: 'SGD'
+  MAX_EPOCHS: 120
+  BASE_LR: 0.0004
+  WARMUP_EPOCHS: 20
+  IMS_PER_BATCH: 64
+  WARMUP_METHOD: 'cosine'
+  LARGE_FC_LR: False
+  CHECKPOINT_PERIOD: 120
+  LOG_PERIOD: 20
+  EVAL_PERIOD: 120
+  WEIGHT_DECAY:  1e-4
+  WEIGHT_DECAY_BIAS: 1e-4
+  BIAS_LR_FACTOR: 2
+
+TEST:
+  EVAL: True
+  IMS_PER_BATCH: 256
+  RE_RANKING: False
+  WEIGHT: ''
+  NECK_FEAT: 'before'
+  FEAT_NORM: 'yes'
+
+# OUTPUT_DIR: '../../log/transreid/market/vit_base_ics_cfs_lup_384'
+
+==> Load unlabeled dataset
+using Transformer_type: vit_base_patch16_224_TransReID as a backbone
+using stride: [16, 16], and patch number is num_y18 * num_x9
+using stride: [16, 16], and patch number is num_y18 * num_x9
+Resized position embedding from size:torch.Size([1, 129, 768]) to size: torch.Size([1, 163, 768]) with height:18 width: 9
+Load 172 / 203 layers.
+===========building transformer===========
+==> Test with the best model:
+=> Loaded checkpoint 'logs/sysu_train/model_best.pth.tar'
+Extracting Query Feature...
+Extracting Time:	 21.786
+Extracting Gallery Feature...
+Extracting Time:	 2.882
+Test Trial: 0
+FC:   Rank-1: 64.63% | Rank-5: 88.43% | Rank-10: 94.35%| Rank-20: 97.90%| mAP: 64.39%| mINP: 52.32%
+Extracting Gallery Feature...
+Extracting Time:	 2.782
+Test Trial: 1
+FC:   Rank-1: 64.32% | Rank-5: 88.61% | Rank-10: 94.03%| Rank-20: 97.32%| mAP: 63.21%| mINP: 50.51%
+Extracting Gallery Feature...
+Extracting Time:	 2.856
+Test Trial: 2
+FC:   Rank-1: 67.16% | Rank-5: 90.48% | Rank-10: 94.98%| Rank-20: 97.74%| mAP: 64.00%| mINP: 51.02%
+Extracting Gallery Feature...
+Extracting Time:	 2.575
+Test Trial: 3
+FC:   Rank-1: 67.92% | Rank-5: 91.66% | Rank-10: 95.64%| Rank-20: 98.53%| mAP: 64.93%| mINP: 50.67%
+Extracting Gallery Feature...
+Extracting Time:	 2.554
+Test Trial: 4
+FC:   Rank-1: 66.16% | Rank-5: 90.69% | Rank-10: 94.77%| Rank-20: 98.19%| mAP: 64.67%| mINP: 52.15%
+Extracting Gallery Feature...
+Extracting Time:	 2.895
+Test Trial: 5
+FC:   Rank-1: 64.92% | Rank-5: 88.69% | Rank-10: 94.45%| Rank-20: 97.84%| mAP: 63.85%| mINP: 51.61%
+Extracting Gallery Feature...
+Extracting Time:	 2.732
+Test Trial: 6
+FC:   Rank-1: 64.84% | Rank-5: 88.72% | Rank-10: 94.40%| Rank-20: 97.71%| mAP: 63.89%| mINP: 51.59%
+Extracting Gallery Feature...
+Extracting Time:	 2.954
+Test Trial: 7
+FC:   Rank-1: 64.21% | Rank-5: 88.33% | Rank-10: 94.45%| Rank-20: 97.84%| mAP: 62.16%| mINP: 49.36%
+Extracting Gallery Feature...
+Extracting Time:	 2.857
+Test Trial: 8
+FC:   Rank-1: 64.84% | Rank-5: 87.90% | Rank-10: 93.45%| Rank-20: 97.13%| mAP: 62.45%| mINP: 49.83%
+Extracting Gallery Feature...
+Extracting Time:	 2.840
+Test Trial: 9
+FC:   Rank-1: 63.84% | Rank-5: 88.19% | Rank-10: 93.74%| Rank-20: 97.92%| mAP: 62.71%| mINP: 50.37%
+all search All Average:
+FC:     Rank-1: 65.29% | Rank-5: 89.17% | Rank-10: 94.43%| Rank-20: 97.81%| mAP: 63.63%| mINP: 50.94%
+Extracting Query Feature...
+Extracting Time:	 12.896
+Extracting Gallery Feature...
+Extracting Time:	 2.302
+Test Trial: 0
+FC:   Rank-1: 70.15% | Rank-5: 90.72% | Rank-10: 95.34%| Rank-20: 99.23%| mAP: 75.55%| mINP: 72.20%
+Extracting Gallery Feature...
+Extracting Time:	 2.150
+Test Trial: 1
+FC:   Rank-1: 71.06% | Rank-5: 91.76% | Rank-10: 96.74%| Rank-20: 99.14%| mAP: 76.16%| mINP: 72.41%
+Extracting Gallery Feature...
+Extracting Time:	 1.659
+Test Trial: 2
+FC:   Rank-1: 70.02% | Rank-5: 93.07% | Rank-10: 96.33%| Rank-20: 98.91%| mAP: 75.21%| mINP: 70.82%
+Extracting Gallery Feature...
+Extracting Time:	 1.996
+Test Trial: 3
+FC:   Rank-1: 73.32% | Rank-5: 92.89% | Rank-10: 96.38%| Rank-20: 98.87%| mAP: 78.60%| mINP: 75.74%
+Extracting Gallery Feature...
+Extracting Time:	 1.606
+Test Trial: 4
+FC:   Rank-1: 70.38% | Rank-5: 88.95% | Rank-10: 93.52%| Rank-20: 97.64%| mAP: 75.28%| mINP: 72.15%
+Extracting Gallery Feature...
+Extracting Time:	 2.036
+Test Trial: 5
+FC:   Rank-1: 69.93% | Rank-5: 91.17% | Rank-10: 95.70%| Rank-20: 98.87%| mAP: 75.52%| mINP: 72.22%
+Extracting Gallery Feature...
+Extracting Time:	 1.751
+Test Trial: 6
+FC:   Rank-1: 71.92% | Rank-5: 91.53% | Rank-10: 95.11%| Rank-20: 98.05%| mAP: 77.01%| mINP: 73.90%
+Extracting Gallery Feature...
+Extracting Time:	 1.808
+Test Trial: 7
+FC:   Rank-1: 72.74% | Rank-5: 92.75% | Rank-10: 96.88%| Rank-20: 99.32%| mAP: 78.26%| mINP: 75.21%
+Extracting Gallery Feature...
+Extracting Time:	 1.698
+Test Trial: 8
+FC:   Rank-1: 71.92% | Rank-5: 93.34% | Rank-10: 97.01%| Rank-20: 99.64%| mAP: 77.19%| mINP: 73.48%
+Extracting Gallery Feature...
+Extracting Time:	 1.957
+Test Trial: 9
+FC:   Rank-1: 69.43% | Rank-5: 91.67% | Rank-10: 94.88%| Rank-20: 99.32%| mAP: 75.18%| mINP: 71.52%
+indoor All Average:
+FC:     Rank-1: 71.09% | Rank-5: 91.78% | Rank-10: 95.79%| Rank-20: 98.90%| mAP: 76.40%| mINP: 72.97%
+Total running time:  0:06:19.726893
