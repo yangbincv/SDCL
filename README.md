@@ -5,14 +5,17 @@ The *official* repository for [Towards Grand Unified Representation Learning for
 **Our unified framework**
 ![framework](figs/overview.pdf)
 
-# Highlight
+# Contributions
 
-1. We propose a novel unsupervised learning framework that adopts a bottom-up domain learning strategy with cross-memory association embedding. This enables the model to learn unified representation which is robust against hierarchical discrepancy.
-2. We design a cross-modality label unification module to propagate and smooth labels between two modalities with heterogeneous affinity matrix and homogeneous structure matrix, respectively, unifying the identities across the two modalities.
-3. Extensive experiments on the SYSU-MM01 and RegDB datasets demonstrate that our GUR framework significantly outperforms existing USL-VI-ReID methods, and even surpasses some supervised counterparts, further narrowing the gap between supervised and unsupervised VI-ReID. 
+1. We propose a shallow-deep collaborative learning framework based on the transformer architecture. This framework facilitates the learning of robust representation, effectively countering the cross-modality discrepancy through the collaboration of shallow and deep features.
+2. We propose a collaborative neighbor learning module to formulate dependable intra-modality and cross-modality neighbor learning, enabling the model to capture modality-invariant and discriminative features. 
+3. We propose a collaborative ranking association module to explore intra-modality and cross-modality ranking consistencies, unifying the cross-modality labels and providing invaluable cross-modality supervision.
+4. Extensive experiments validate that our SDCL framework surpasses existing methods on two mainstream VI-ReID benchmarks, consistently improving the unsupervised cross-modality retrieval performance.
+
+
 
 # Prepare Datasets
-Put SYSU-MM01 and RegDB dataset into data/sysu and data/regdb, run prepare\_sysu.py and prepare\_regdb.py to prepare the training data (convert to market1501 format).
+Put SYSU-MM01 and RegDB dataset into data/sysu and data/regdb, run prepare\_sysu.py and prepare\_regdb.py to prepare the training data (convert to market1501 format).( See previous work [ADCA](https://github.com/yangbincv/ADCA) or [GUR](https://github.com/yangbincv/GUR). )
 
 # Training
 
