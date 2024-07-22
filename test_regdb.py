@@ -633,7 +633,7 @@ def test(args,log_name):
     print('FC:     Rank-1: {:.2%} | Rank-5: {:.2%} | Rank-10: {:.2%}| Rank-20: {:.2%}| mAP: {:.2%}| mINP: {:.2%}'.format(
             cmc[0], cmc[4], cmc[9], cmc[19], mAP, mINP))
     end_time = time.monotonic()
-    print('Total running time: ', timedelta(seconds=end_time - start_time))
+    # print('Total running time: ', timedelta(seconds=end_time - start_time))
 
 
 
