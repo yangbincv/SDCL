@@ -15,8 +15,9 @@ The *official* repository for [Shallow-Deep Collaborative Learning for Unsupervi
 # Prepare Datasets
 Put SYSU-MM01 and RegDB dataset into data/sysu and data/regdb, run prepare\_sysu.py and prepare\_regdb.py to prepare the training data (convert to market1501 format).( See previous work [ADCA](https://github.com/yangbincv/ADCA) or [GUR](https://github.com/yangbincv/GUR). )
 
-# Prepare Pre-train model
-We adopt the self-supervised pre-trained models (ViT-B/16+ICS) from [Self-Supervised Pre-Training for Transformer-Based Person Re-Identification](https://github.com/damo-cv/TransReID-SSL?tab=readme-ov-file)
+# Prepare Pre-trained model
+We adopt the self-supervised pre-trained models (ViT-B/16+ICS) from [Self-Supervised Pre-Training for Transformer-Based Person Re-Identification](https://github.com/damo-cv/TransReID-SSL?tab=readme-ov-file).
+Download link:https://drive.google.com/file/d/1ZFMCBZ-lNFMeBD5K8PtJYJfYEk5D9isd/view
 
 # Training
 
