@@ -653,6 +653,7 @@ def main_worker_stage2(args,log_name):
             num_cluster_rgb = len(set(pseudo_labels_rgb)) - (1 if -1 in pseudo_labels_rgb else 0)
         cluster_features_ir = generate_cluster_features(pseudo_labels_ir, features_ir_ori)
         cluster_features_rgb = generate_cluster_features(pseudo_labels_rgb, features_rgb_ori)
+        #If the loss does not converge at the first epoch, you can set args.momentum to 0.9 or 0.99 at the first epoch, and restore it to 0.1 for subsequent training sessions.
         memory_ir = ClusterMemory(768, num_cluster_ir, temp=args.temp,
                                momentum=args.momentum, use_hard=args.use_hard).cuda()
         memory_rgb = ClusterMemory(768, num_cluster_rgb, temp=args.temp,
