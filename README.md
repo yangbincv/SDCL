@@ -101,6 +101,8 @@ If you find this code useful for your research, please cite our papers.
 }
 
 ```
+# Tips
+Due to the different environments, the model may crash in the first epoch, resulting in poor results. You can increase the args.momentum parameter in the first epoch, and restore it to 0.1 in the second epoch.If you have any reproduction problems, welcome to contact us!
 
 # Contact
 yangbin_cv@whu.edu.cn; yemang@whu.edu.cn.
